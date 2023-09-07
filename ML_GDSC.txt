@@ -1,0 +1,25 @@
+#strong password generator
+#can implement-> length, complexity, special characters 
+import random
+import string
+
+choose_character=""
+'''
+complexity 1:only upper and lowercase characters (easy)
+complexity 2:characters and numbers (medium)
+complexity 3:characters, numbers as well as special characters (hard)
+'''
+len=int(input("enter length of password to be generated:"))
+comp=int(input("enter complexity of password from 1 to 3:"))
+if(comp==1):
+  choose_character += string.ascii_letters
+elif(comp==2):
+  choose_character += string.ascii_letters+string.digits
+elif(comp==3):
+  choose_character += string.ascii_letters+string.digits+string.punctuation
+else:
+  print("invalid input")
+password=[]
+for i in range(len):
+  password.append(random.choice(choose_character))
+print("".join(password)) 
